@@ -4,10 +4,12 @@
   "author": "Marcos Rabaioli <eng.marcosra@gmail.com>",
   "private": true,
   "scripts": {
+    "dev": "node build/dev-server.js",
+    "build": "node build/build.js",
+    "start": "node server.js",
     "watchify": "watchify -vd -p browserify-hmr -e src/main.js -o dist/build.js",
-    "serve": "json-server --watch cervejarias.json --static ./",
-    "dev": "npm-run-all --parallel watchify serve",
-    "build": "cross-env NODE_ENV=production browserify src/main.js | uglifyjs -c warnings=false -m > dist/build.js"
+    "serve": "json-server --watch cervejarias.json --static ./"
+
   },
   "dependencies": {
     "bulma": "^0.6.1",
@@ -39,7 +41,6 @@
       "vueify",
       "babelify"
     ]
-  },
-  "postinstall": "npm run build",
-  "start": "node server.js"
+  }
+
 }
